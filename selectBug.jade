@@ -1,0 +1,51 @@
+head
+  title selectBug
+
+body
+  h1 Welcome to Meteor!
+
+  +hello
+  
+  
+
+template(name="hello")
+
+  +autoForm(collection="Test" id='roomUpdateForm' validation="blur" type="insert")
+    br
+    +afQuickField(name="itemArray" firstOption=false)
+    br
+    +afQuickField(name="item2" firstOption=false) 
+    
+    unless afFieldValueIs name="item2" value=1
+      p Cell is 023-102-2342
+
+    +afQuickField(name="item.nested" firstOption=false) 
+      
+    unless afFieldValueIs name="item.nested" value="2"
+      p Cell is 023-102-2342
+
+    +afQuickField(name="item3.nest.nested" firstOption=false) 
+      
+    unless afFieldValueIs name="item3.nest.nested" value="3"
+      p Cell is 023-102-2342
+
+  h2 Update
+    +autoForm collection="Test" doc=docTest id="updateBookForm" type="update"
+      br
+      +afQuickField(name="itemArray" firstOption=false)
+      br
+      +afQuickField(name="item2" firstOption=false) 
+          
+      unless afFieldValueIs name="item2" value="1"
+        p Cell is 023-102-2342
+            
+      +afQuickField(name="item.nested" firstOption=false) 
+            
+      unless afFieldValueIs name="item.nested" value="2"
+        p Cell is 023-102-2342
+            
+            
+      +afQuickField(name="item3.nest.nested" firstOption=false) 
+        
+      unless afFieldValueIs name="item3.nest.nested" value="3"
+        p Cell is 023-102-2342
